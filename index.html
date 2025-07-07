@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site Pessoal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">William Augusto Hoffmann</h1>
+            <ul class="nav-menu">
+                <li><a href="#sobre" class="nav-link">Sobre Mim</a></li>
+                <li><a href="#formacao" class="nav-link">Formação</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="sobre" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="profile-photo">
+                        <img src="/img/profile_phot.jpg" alt="William Augusto Hoffmann" class="profile-img">
+                    </div>
+                    <p>
+                        Olá! Meu nome é William Augusto Hoffmann e sou um desenvolvedor web apaixonado por tecnologia e inovação. 
+                        Tenho experiência em redes e desenvolvimento, sempre buscando criar soluções digitais que fazem a diferença na vida das pessoas.
+                        Nos meus momentos livres, gosto de ler livros de ficção científica, praticar corrida no parque, 
+                        tocar violão e experimentar novas receitas culinárias. Também sou um entusiasta de jogos de tabuleiro 
+                        e adoro passar tempo com amigos e família. Acredito que a tecnologia deve ser acessível e útil para todos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacao" class="section">
+            <div class="container">
+                <h2 class="section-title">Formação</h2>
+                <div class="education-content">
+                    <div class="education-item">
+                        <h3>Escolaridade</h3>
+                        <ul>
+                            <li>curso de redes e mikrotik-hackone (2024)</li>
+                            <li>Curso Técnico em Informática</li>
+                        </ul>
+                    </div>
+                    <div class="education-item">
+                        <h3>Idiomas</h3>
+                        <ul>
+                            <li>Português - Nativo</li>
+                            <li>Inglês - Intermediário</li>
+                            <li>Libras - Intermediário</li>
+                            <li>Italiano - Básico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2 class="section-title">Portfólio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>calculadora</h3>
+                        <p>Uma simples calculadora para faculdade.</p>
+                        <a href="https://github.com/YubaCode/calculadora" class="portfolio-link" title="Ver projeto no GitHub">Ver no GitHub</a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-content">
+                    <p>Entre em contato comigo! Ficarei feliz em conversar sobre projetos, oportunidades ou apenas trocar ideias.</p>
+                    <form class="contact-form" onsubmit="enviarWhats(event)">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/YubaCode" class="social-link" title="Perfil do GitHub">
+               <i class="fa-brands fa-github-alt"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/william-augusto-hoffmann-371519258/" class="social-link" title="Perfil do LinkedIn">
+               <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <div class="container">
+            <p>&copy; 2025 William Augusto Hoffmann. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+      function enviarWhats(event){
+        event.preventDefault(); // Impede o recarregamento da página
+
+        // Pegando os valores digitados pelo usuário
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const telefone = '5541991715497'; // Número de telefone com DDI e DDD
+
+        // Montando a mensagem que será enviada
+        const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+        const msgFormatada = encodeURIComponent(texto); // Codificando para URL
+
+        // Criando o link do WhatsApp com a mensagem pronta
+        const url = `https://wa.me/${telefone}/?text=${msgFormatada}`;
+        console.log(url); // Apenas para testes no console
+
+        // Abrindo o WhatsApp em uma nova aba
+        window.open(url, '_blank');
+      }
+    </script>
+</body>
+</html>
+
